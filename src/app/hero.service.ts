@@ -19,10 +19,16 @@ export class HeroService {
     return heroes;
   }
 
-  getHero(id: any) {
+  // getHero(id: any) {
+  //   // TODO: send the message _after_ fetching the hero
+  //   this.messageService.add(`HeroService: fetched hero id=${id}`);
+  //   return HEROES.find(hero => hero.id == id);
+  // }
+
+  getHero(id: number): Observable<Hero | undefined> {
     // TODO: send the message _after_ fetching the hero
     this.messageService.add(`HeroService: fetched hero id=${id}`);
-    return HEROES.find(hero => hero.id == id);
+    return of(HEROES.find(hero => hero.id === id));
   }
 
 }
